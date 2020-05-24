@@ -1,46 +1,29 @@
 .blog-post {
-  padding: 2rem;
-  /* padding: 0 3px; */
   max-width: 960px;
+  padding: 1rem;
+  margin: 1rem auto;
   overflow: hidden;
+  background-color: #fff;
+  border-radius: var(--base-border-radius);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .blog-post-title {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 100;
-  font-style: italic;
-  color: var(--primary-color);
-  text-shadow: 2px 5px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem 0 0.5rem 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--primary-title-color);
   text-transform: uppercase;
 }
 
-.blog-post-quote {
-  position: relative;
-  /* padding: 4rem 1rem 1rem; */
-  padding: 1rem;
-  margin: 2rem 0;
-  text-align: justify;
-  font-family: var(--serif-font);
-  font-style: italic;
-  color: var(--primary-text-color);
-  border-left: 8px solid var(--primary-light-color);
-  background-color: #f2f2f2;
-  /* text-indent: 5em; */
+.blog-post-sub-title {
+  font-size: 14px;
+  color: var(--secondary-text-color);
 }
 
-/* .blog-post-quote::before {
-  display: block;
-  position: absolute;
-  left: -126px;
-  top: 130px;
-  content: '\201C';
-  font-size: 15rem;
-  color: rgba(138, 45, 34, 0.3);
-  width: 0;
-  height: 0;
-  pointer-events: none;
-} */
+.blog-post-sub-title span + span {
+  margin-left: 0.8rem;
+}
 
 .blog-post-content h2,
 .blog-post-content h3,
@@ -48,13 +31,9 @@
 .blog-post-content h5,
 .blog-post-content h6 {
   width: fit-content;
-  padding: 0.5rem 1rem;
   margin: 1em 0 0.5em 0;
-  border-radius: 0 28px 0 28px;
-  font-family: var(--serif-font);
-  font-weight: 100;
-  color: white;
-  background-color: var(--primary-light-color);
+  color: var(--primary-text-color);
+  font-weight: bold;
 }
 
 .blog-post-content h2 {
@@ -79,22 +58,18 @@
   text-align: justify;
 }
 
-.blog-post-content ul,
-.blog-post-content ol {
-  margin-left: 40px;
-}
-
-.blog-post-content ul {
-  list-style: '🎈' outside;
-}
-
 .blog-post-content a {
-  padding: 0 2px;
+  padding: 2px 3px;
   position: relative;
   z-index: 2;
   color: var(--primary-text-color);
   text-decoration: none;
-  cursor: alias;
+  cursor: pointer;
+  transition: var(--base-transition);
+}
+
+.blog-post-content a:hover {
+  color: #fff;
 }
 
 .blog-post-content a::before {
@@ -106,12 +81,8 @@
   right: 0;
   top: 50%;
   border-radius: 0 5px 0 5px;
-  background-color: rgba(138, 45, 34, 0.6);
+  background-color: var(--primary-light-color);
   transition: var(--base-transition);
-}
-
-.blog-post-content a[href*="https://coderfee.com"] {
-  cursor: pointer;
 }
 
 .blog-post-content a:hover::before {
@@ -139,4 +110,3 @@
     padding: 2rem;
   }
 }
-

@@ -9,6 +9,6 @@
   display: block;
   margin: 1rem auto;
   height: 1px;
-  background-color: var(--border-color);
+  background-color: var(--divider-color);
   user-select: none;
 }

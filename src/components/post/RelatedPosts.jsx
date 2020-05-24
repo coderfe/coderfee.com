@@ -1,61 +1,77 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { CalendarFilled } from '@ant-design/icons';
 
 const RelatedPostsContainer = styled.div`
-  padding: 2rem;
-  text-align: left;
-  font-family: var(--serif-font);
+  width: 230px;
+  border-radius: var(--base-border-radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
   @media screen and (max-width: 1200px) {
     display: none;
   }
 
   a {
-    position: relative;
-    display: block;
-    padding: 12px 3px;
+    color: var(--primary-text-color);
     text-decoration: none;
-    color: var(--primary-light-color);
-    transition: var(--base-transition);
-  }
-  a::before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 2px;
-    width: 1px;
-    height: 100%;
-    background: var(--primary-light-color);
-  }
-  a:hover {
-    color: var(--primary-color);
-  }
-  a:hover::before {
-    background-color: var(--primary-color);
   }
 `;
 
-const Title = styled.div`
-  padding-left: 3px;
-  color: var(--primary-light-color);
-  border-bottom: 1px solid var(--primary-light-color);
+const PostCard = styled.div`
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 0.6rem;
+  padding: 0.6rem;
+
+  & + & {
+    border-top: 1px solid var(--border-color);
+  }
+`;
+
+const PostCardCover = styled.div`
+  width: 100px;
+  height: 80px;
+  background: url('https://source.unsplash.com/random');
+  background-size: 100%;
+  border-radius: var(--base-border-radius);
+`;
+
+const PostCardInfo = styled.div`
+  a {
+    font-weight: bold;
+    font-size: 13px;
+    transition: var(--base-transition);
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+`;
+
+const PostCardSub = styled.div`
+  font-size: 12px;
+  color: var(--secondary-text-color);
 `;
 
 export default function relatedPosts({ posts }) {
   return posts.length > 0 ? (
     <RelatedPostsContainer>
-      <Title>相关阅读</Title>
-      <div style={{ writingMode: 'vertical-rl', marginLeft: '-2px' }}>
-        {posts.map(post => {
-          return (
-            <Link to={post.node.frontmatter.path} key={post.node.frontmatter.path}>
-              {post.node.frontmatter.title}
-            </Link>
-          );
-        })}
-      </div>
+      {posts.map((post) => {
+        return (
+          <PostCard key={post.node.frontmatter.path}>
+            <PostCardCover />
+            <PostCardInfo>
+              <Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link>
+              <PostCardSub>
+                <CalendarFilled style={{ color: 'var(--secondary-text-color)' }} />
+                &nbsp;
+                {post.node.frontmatter.date}
+              </PostCardSub>
+            </PostCardInfo>
+          </PostCard>
+        );
+      })}
     </RelatedPostsContainer>
   ) : null;
 }

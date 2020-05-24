@@ -45,6 +45,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               path
               tags
               title
+              date(formatString: "MMM DD, YYYY")
             }
           }
         }
@@ -87,10 +88,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 
 function parseRelatedPosts(allPosts, currentPost) {
   const { tags: postTags, title: postTitle } = currentPost.frontmatter;
-  return allPosts.data.allMarkdownRemark.edges.filter(edge => {
+  return allPosts.data.allMarkdownRemark.edges.filter((edge) => {
     const { tags: currentPostTags, title: currentPostTitle } = edge.node.frontmatter;
     if (postTags && currentPostTags) {
-      return postTags.some(t => currentPostTags.includes(t)) && postTitle !== currentPostTitle;
+      return postTags.some((t) => currentPostTags.includes(t)) && postTitle !== currentPostTitle;
     }
     return false;
   });

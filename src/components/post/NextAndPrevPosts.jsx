@@ -1,28 +1,31 @@
 import React from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 const BlogPostLinkContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  
+
   @media screen and (max-width: 447px) {
     flex-direction: column;
   }
-  
+
   a,
   a {
     display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
     color: var(--primary-light-color);
     text-decoration: none;
     transition: var(--base-transition);
   }
-  
+
   a:hover,
   a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
+    color: var(--primary-dark-color);
     transform: translateX(0);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -54,7 +57,8 @@ export default function NextAndPrevPosts({ previous, next }) {
             title={previous.frontmatter.title}
             to={previous.frontmatter.path}
           >
-            ←{previous.frontmatter.title}
+            <LeftOutlined />
+            {previous.frontmatter.title}
           </AniLink>
         )}
       </Prev>
@@ -67,10 +71,11 @@ export default function NextAndPrevPosts({ previous, next }) {
             title={next.frontmatter.title}
             to={next.frontmatter.path}
           >
-            {next.frontmatter.title}→
+            {next.frontmatter.title}
+            <RightOutlined />
           </AniLink>
         )}
       </Next>
     </BlogPostLinkContainer>
-  )
+  );
 }

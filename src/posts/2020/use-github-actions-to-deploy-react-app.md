@@ -3,7 +3,7 @@ title: 使用 GitHub Actions 将 React App 部署到 GitHub Pages
 date: 2020-05-05
 path: '/2020/use-github-actions-to-deploy-react-app'
 tldr: 简单记录一下使用 GitHub Action 的过程
-tags: ['GitHub Actions', '工具', 'React', 'GitHub Pages']
+tags: ['CI', '工具', 'React', 'GitHub Pages']
 ---
 
 最近接到一个需求，做一个类似下面这种页面的 demo，原本让用小程序实现，但是后来发现貌似没法用小程序实现，就改用 Web 来实现了。后来给别人展示的时候，发现我总不能发给人家一堆 node_modules 呀，于是就想部署到 GitHub Pages。其实不用 GitHub Actions 也可以，只不过每次 push 之后多敲一次命令：`npm run deploy`，但是偷懒也应该要认真偷。

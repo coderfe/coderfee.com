@@ -1,53 +1,62 @@
 import React from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import styled from 'styled-components'
-import Emoji from '../emoji';
+import { BookOutlined, CalendarOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
 
 const NavigatorContainer = styled.div`
-  text-align: center;
-  font-family: var(--serif-font);
-  font-weight: bold;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   
   a {
-    display: block;
-    color: white;
-    font-size: 18px;
+    font-size: 16px;
+    color: var(--secondary-text-color);
+    text-decoration: none;
     transition: all 0.2s linear;
-  }
-  
-  a + a {
-    margin-top: 1rem;
+    
+    span {
+      width: 38px;
+      height: 38px;
+      line-height: 38px;
+      border-radius: 5px;
+      margin-right: 3px;
+      text-align: center;
+      background-color: #f5f5f5;
+      transition: all 0.2s linear;
+    }
   }
   
   a:hover,
   a[aria-current=page] {
-    font-weight: 900;
-    transform: scale(1.2);
+    font-weight: bold;
+    color: var(--primary-text-color);
+    
+    span {
+      color: #fff !important;
+      background-color: var(--primary-light-color);
+    }
   }
 `;
 
-export default function Navigator() {
+const style = { color: '#333' }
+
+export const Navigator =  () => {
   return (
     <NavigatorContainer>
       <AniLink paintDrip hex="#af877c" duration={1} to="/">
-        <Emoji label="首页" emoji="🏡">
-          此间
-        </Emoji>
+        <HomeOutlined style={style} />此间
       </AniLink>
       <AniLink paintDrip hex="#af877c" duration={1} to="/books">
-        <Emoji label="书单" emoji="📚">
-          此书
-        </Emoji>
+        <BookOutlined style={style} />此书
       </AniLink>
       <AniLink paintDrip hex="#af877c" duration={1} to="/about">
-        <Emoji label="关于我" emoji="👨‍💻‍">
-          此人
-        </Emoji>
+        <UserOutlined style={style} />此人
       </AniLink>
       <AniLink paintDrip hex="#af877c" duration={1} to="/year">
-        <Emoji label="年终总结" emoji="📆">
-          此年
-        </Emoji>
+        <CalendarOutlined style={style} />此年
       </AniLink>
     </NavigatorContainer>
   );

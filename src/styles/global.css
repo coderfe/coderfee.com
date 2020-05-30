@@ -72,25 +72,40 @@ body {
 }
 
 .layout {
+  max-width: 1366px;
   display: grid;
-  grid-template-columns: 410px 1fr;
-  grid-template-rows: 100vh;
+  grid-gap: 1.5rem;
+  padding: 1.5rem;
+  margin: 0 auto;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.6);
-}
-
-.layout main {
-  height: 100vh;
-  overflow: auto;
 }
 
 /* .home - 首页 */
 .home {
-  padding: var(--main-padding);
+  /*padding: 1rem;*/
+}
+
+.home .post {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 320px 1fr;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.home .post .cover {
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.home .post .cover img {
+  max-width: 100%;
 }
 
 .home .post:not(:first-child) {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .post .post-title {
@@ -125,7 +140,6 @@ body {
 .post blockquote {
   margin: 0;
   font-size: 15px;
-  font-style: italic;
   text-align: justify;
   color: var(--secondary-text-color);
 }

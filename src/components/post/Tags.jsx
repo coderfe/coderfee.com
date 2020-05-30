@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Tag = styled.span`
   display: inline-block;
   padding: 0.5rem;
-  background-color: #4c6fff;
+  background-color: var(--primary-dark-color);
   color: #fff;
   font-size: 12px;
   font-weight: bold;

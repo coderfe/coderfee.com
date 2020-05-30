@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.div`
+  grid-area: footer;
   margin-top: 1rem;
   padding: 1rem;
   color: white;

@@ -16,13 +16,13 @@ const IndexPage = ({ data }) => {
       const target = document.querySelector('#footer');
       if (target) {
         observer = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
+          (entries) => {
+            entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 const nextPage = Number(target.dataset.page) + 1;
                 setPage(nextPage);
                 if (nextPage < chunkedPosts.length) {
-                  setPosts(prevPosts => {
+                  setPosts((prevPosts) => {
                     return [...prevPosts, ...chunkedPosts[nextPage]];
                   });
                 }
@@ -46,21 +46,26 @@ const IndexPage = ({ data }) => {
       <SEO title="首页" description="coderfee coderfee.com coderfe 前端 Gatsby" />
       <div className="home">
         {posts.map(({ node: post }) => (
-          <article className="post" key={post.id}>
-            <Link className="post-title" to={post.frontmatter.path}>
-              {post.frontmatter.title}
-            </Link>
-            <p className="post-title_sub">
-              <span>{post.frontmatter.date}</span>
-              {post.frontmatter.tags &&
-                post.frontmatter.tags.map((tag, index) => (
-                  <span className="sub-tag" key={index}>
-                    #{tag}#
-                  </span>
-                ))}
-            </p>
-            <blockquote>{post.frontmatter.tldr}</blockquote>
-          </article>
+          <div className="post">
+            <div className="cover">
+              <img src="https://source.unsplash.com/random" alt={post.frontmatter.title} />
+            </div>
+            <article key={post.id}>
+              <Link className="post-title" to={post.frontmatter.path}>
+                {post.frontmatter.title}
+              </Link>
+              <p className="post-title_sub">
+                <span>{post.frontmatter.date}</span>
+                {post.frontmatter.tags &&
+                  post.frontmatter.tags.map((tag, index) => (
+                    <span className="sub-tag" key={index}>
+                      #{tag}#
+                    </span>
+                  ))}
+              </p>
+              <blockquote>{post.frontmatter.tldr}</blockquote>
+            </article>
+          </div>
         ))}
       </div>
     </Layout>

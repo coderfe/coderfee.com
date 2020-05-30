@@ -8,10 +8,6 @@ const RelatedPostsContainer = styled.div`
   border-radius: var(--base-border-radius);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-  @media screen and (max-width: 1200px) {
-    display: none;
-  }
-
   a {
     color: var(--primary-text-color);
     text-decoration: none;

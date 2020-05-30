@@ -3,7 +3,7 @@ title: 利用 TravisCI 自动部署 Hexo blog
 date: 2016-04-25
 path: '/automatic-deploy-hexo-blog-with-travis-ci'
 tldr: Travis CI 是在软件开发领域中的一个在线的，分布式的持续集成服务，用来构建及测试在 GitHub 托管的代码。这个软件的代码同时也是开源的，可以在 GitHub 上下载到，尽管开发者当前并不推荐在闭源项目中单独使用它。
-tags: ['Hexo']
+tags: ['Hexo', 'CI']
 ---
 
 前几天的[一篇文章](http://coderfe.cn/2016/04/07/hexo-github-blog/)介绍了搭建自己的 Hexo 博客，可是，今天遇到了一个问题：我要在另一台电脑上写博客文章，但是博客的源代码却不在身边，而且我也没有备份。于是就有一下几个解决方案：

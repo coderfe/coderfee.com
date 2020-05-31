@@ -6,7 +6,7 @@ import { CalendarFilled } from '@ant-design/icons';
 const RelatedPostsContainer = styled.div`
   width: 230px;
   border-radius: var(--base-border-radius);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow);
 
   a {
     color: var(--primary-text-color);

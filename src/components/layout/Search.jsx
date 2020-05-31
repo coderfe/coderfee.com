@@ -7,9 +7,9 @@ import { SearchOutlined } from '@ant-design/icons';
 const SearchWrapper = styled.div`
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow);
   background-color: #fff;
-  margin-top: 1.5rem;
+  margin-top: var(--base-margin);
 `;
 
 export const Search = () => {

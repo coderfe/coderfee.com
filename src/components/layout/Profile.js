@@ -11,10 +11,10 @@ const ProfileWrapper = styled.div`
   grid-gap: 1rem;
   grid-template-columns: 160px 1fr;
   padding: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow);
   border-radius: 10px;
   background-color: #fff;
-  margin-top: 1.5rem;
+  margin-top: var(--base-margin);
 `;
 
 const ProfileAvatar = styled.div`

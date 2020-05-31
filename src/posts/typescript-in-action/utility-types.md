@@ -4,6 +4,7 @@ date: 2019-08-28
 path: '/typescript-in-action/utility-types'
 tldr: TypeScript 提供了一些全局可用的实用程序类型，通常和泛型一起使用，以便进行类型转换。
 tags: ['TypeScript']
+cover: './cover.png'
 ---
 
 ## Partial&lt;T&gt;

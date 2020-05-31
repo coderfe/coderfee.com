@@ -4,6 +4,7 @@ date: 2019-01-31
 path: '/es2018-new-features'
 tldr: 这篇文章详细介绍了 ES2018 标准中添加的几个新功能，例如 rest/spread 属性、异步迭代和 Promise.prototype.finally 等。
 tags: ['JavaScript', '译文']
+cover: './cover.png'
 ---
 
 发布于 2018 年 6 月的第九版 ECMAScript 标准，官方称之为 ECMAScript 2018（简称 ES2018）。从 ES2016 开始，每年都会发布一个 ECMAScript 规范的新版本，而不是每几年发布一次，而且相比以前的主要版本添加少量新功能。最新版标准通过为 `RegExp` 添加 4 个新功能、rest/spread 属性、异步迭代和 `Promise.prototype.finally` 来延续它的年度发布周期。此外，ES2018 从标签模板中删除了转义序列的语法限制。
@@ -281,7 +282,7 @@ const collection = {
   a: 10,
   b: 20,
   c: 30,
-  [Symbol.iterator]: function*() {
+  [Symbol.iterator]: function* () {
     for (let key in this) {
       yield this[key];
     }
@@ -324,22 +325,22 @@ const collection = {
 const iterator = collection[Symbol.iterator]();
 
 console.log(
-  iterator.next().then(result => {
+  iterator.next().then((result) => {
     console.log(result); // {value: 10, done: false}
   })
 );
 console.log(
-  iterator.next().then(result => {
+  iterator.next().then((result) => {
     console.log(result); // {value: 20, done: false}
   })
 );
 console.log(
-  iterator.next().then(result => {
+  iterator.next().then((result) => {
     console.log(result); // {value: 30, done: false}
   })
 );
 console.log(
-  iterator.next().then(result => {
+  iterator.next().then((result) => {
     console.log(result); // {value: undefined, done: true}
   })
 );
@@ -386,14 +387,14 @@ const collection = {
   a: 10,
   b: 20,
   c: 30,
-  [Symbol.asyncIterator]: async function*() {
+  [Symbol.asyncIterator]: async function* () {
     for (let key in this) {
       yield this[key];
     }
   },
 };
 
-(async function() {
+(async function () {
   for await (const x of collection) {
     console.log(x);
   }
@@ -420,7 +421,7 @@ const collection = {
   },
 };
 
-(async function() {
+(async function () {
   try {
     for await (const value of collection) {
     }
@@ -451,10 +452,10 @@ const collection = {
 
 ```javascript
 fetch('https://www.gooole.com')
-  .then(res => {
+  .then((res) => {
     console.log(res);
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   })
   .finally(() => {
@@ -468,10 +469,10 @@ fetch('https://www.gooole.com')
 
 ```javascript
 fetch('https://www.gooole.com')
-  .then(res => {
+  .then((res) => {
     console.log(res);
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   })
   .then(final, final);

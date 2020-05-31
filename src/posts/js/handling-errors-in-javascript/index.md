@@ -4,6 +4,7 @@ date: 2018-12-16
 path: '/handling-errors-in-javascript'
 tldr: 错误并不可怕。通过这些错误我们可以了解哪些事情不能做，以及在下次遇到这种情况时，如何更好地处理。
 tags: ['JavaScript', '译文']
+cover: '../cover.png'
 ---
 
 > 原文链接：[Handling Errors in JavaScript: The Definitive Guide](https://levelup.gitconnected.com/the-definite-guide-to-handling-errors-gracefully-in-javascript-58424d9c60e6)
@@ -104,22 +105,22 @@ myAsyncFunc(someInput, (err, result) => {
 
 ```javascript
 Promise.resolve(1)
-  .then(res => {
+  .then((res) => {
     console.log(res); // 1
     throw new Error('something went wrong');
     return Promise.resolve(2);
   })
-  .then(res => {
+  .then((res) => {
     console.log(res); // 2
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
     return Promise.resolve(3);
   })
-  .then(res => {
+  .then((res) => {
     console.log(res); // 3
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   });
 ```
@@ -129,7 +130,7 @@ Promise.resolve(1)
 随着 JavaScript 中引入 async/await，我们又回到了最初处理错误的方式，使用 `try...catch`，这使得处理错误变得比较容易:
 
 ```javascript
-(async function() {
+(async function () {
   try {
     await someFuncThatThrowsAnError();
   } catch (err) {
@@ -218,8 +219,7 @@ router.use(async (req, res) => {
         // 未处理错误，我们只要返回通用的错误对象
         return res.status(500).send({
           error: 'GENERIC',
-          description:
-            'Something went wrong. Please try again or contact support.',
+          description: 'Something went wrong. Please try again or contact support.',
         });
       }
     }
@@ -238,33 +238,23 @@ router.use(async (req, res) => {
 ```javascript
 const CustomError = require('../CustomError');
 
-const GET = req => {
+const GET = (req) => {
   return { name: 'Rio de Janeiro' };
 };
 
-const POST = req => {
-  throw new Error(
-    'Some unexpected error, may also be thrown by a library or the runtime.'
-  );
+const POST = (req) => {
+  throw new Error('Some unexpected error, may also be thrown by a library or the runtime.');
 };
 
-const DELETE = req => {
-  throw new CustomError(
-    'CITY_NOT_FOUND',
-    404,
-    'The city you are trying to delete could not be found.'
-  );
+const DELETE = (req) => {
+  throw new CustomError('CITY_NOT_FOUND', 404, 'The city you are trying to delete could not be found.');
 };
 
-const PATCH = req => {
+const PATCH = (req) => {
   try {
     throw new Error('Some internal error');
   } catch (err) {
-    throw new CustomError(
-      'CITY_NOT_EDITABLE',
-      400,
-      'The city you are trying to edit is not editable.'
-    );
+    throw new CustomError('CITY_NOT_EDITABLE', 400, 'The city you are trying to edit is not editable.');
   }
 };
 
@@ -392,11 +382,7 @@ class GlobalError extends Component {
       >
         {this.props.error}
         &nbsp;
-        <i
-          className="material-icons"
-          style={{ cursor: 'pointer' }}
-          onClick={this.props.resetError}
-        >
+        <i className="material-icons" style={{ cursor: 'pointer' }} onClick={this.props.resetError}>
           close
         </i>
       </div>
@@ -433,10 +419,10 @@ class GenericErrorReq extends Component {
   _callBackend() {
     axios
       .post('/city')
-      .then(result => {
+      .then((result) => {
         // 请求成功
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.response.data.error === 'GENERIC') {
           this.props._setError({ error: err.response.data.error });
         }
@@ -484,10 +470,10 @@ class SpecificErrorRequest extends Component {
 
     axios
       .delete('/api/city')
-      .then(result => {
+      .then((result) => {
         // 请求成功
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.response.data.error === 'GENERIC') {
           this.props.setError(err.response.data.description);
         } else {
@@ -532,12 +518,7 @@ class SpecificErrorRequest extends Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
-          value={this.state.city}
-          style={{ marginRight: 15 }}
-          onChange={this._changeCity}
-        />
+        <input type="text" value={this.state.city} style={{ marginRight: 15 }} onChange={this._changeCity} />
         <button onClick={this._callBackend}>Delete you city</button>
         <InlineError error={this.props._callBackend} />
       </div>
@@ -566,10 +547,10 @@ class SpecificErrorRequest extends Component {
 
     axios
       .delete('/api/city')
-      .then(result => {
+      .then((result) => {
         // 请求成功
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.response.data.error === 'GENERIC') {
           this.props.setError(err.response.data.description);
         } else {

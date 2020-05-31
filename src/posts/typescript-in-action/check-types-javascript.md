@@ -4,6 +4,7 @@ date: 2019-08-31
 path: '/typescript-in-action/check-types-javascript'
 tldr: 借助 VSCode 和 TypeScript 对 JS 进行类型检查。
 tags: ['TypeScript', 'JavaScript']
+cover: './cover.png'
 ---
 
 JavaScript 是一门动态类型语言，我们在编写代码时，一不注意漏掉一个问题可能会导致生产环境出现大问题，例如忽略某个函数的参数或返回值类型。在越大的工程中，越健壮的代码显得尤为重要，那么如何借助 VSCode 和 TS 写出更加健壮且易读的代码呢？

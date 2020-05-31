@@ -1,9 +1,10 @@
 ---
 title: 搭建个人博客 Hexo & Github Pages
 date: 2016-04-07
-path: "/build-your-blog-with-hexo-github-pages"
+path: '/build-your-blog-with-hexo-github-pages'
 tldr: 工欲善其事，必先利其器。在开发过程中用到的软件有 Nodejs / Sublime Text3 / Git 等，参考资料主要是官方文档。
-tags: ["Hexo"]
+tags: ['Hexo']
+cover: './cover.png'
 ---
 
 最终效果图：

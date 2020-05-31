@@ -1,9 +1,10 @@
 ---
 title: Ajax学习笔记
 date: 2016-04-08
-path: "/ajax"
+path: '/ajax'
 tldr: Ajax 即 Asynchronous Javascript and XML（异步的 Javascript 与 XML 技术），简单来说就是无需刷新整个页面就能更新用户界面，从而更快地响应用户行为的一套技术。
-tags: ["JavaScript"]
+tags: ['JavaScript']
+cover: './cover.png'
 ---
 
 ## Step1—创建实例化对象
@@ -40,7 +41,7 @@ var xhr = new XMLHttpRequest();
 检查请求状态，监听`readyState`和`status`的变化
 
 ```javascript
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (xhr.readystate === 4) {
     if (xhr.status === 200) {
       // Success do something

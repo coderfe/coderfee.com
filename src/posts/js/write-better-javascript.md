@@ -1,9 +1,10 @@
 ---
 title: 『译』5 个小技巧，让你在 JavaScript 中写出更好的条件语句
 date: 2018-10-21
-path: "/write-better-javascript"
+path: '/write-better-javascript'
 tldr: 让我们一起“生产”更多易读的代码。我希望你能从这篇文章中学到新的东西。
-tags: ["JavaScript", "译文"]
+tags: ['JavaScript', '译文']
+cover: './cover.png'
 ---
 
 ## 为多条件使用 Array.includes
@@ -45,7 +46,7 @@ function test(fruit) {
 ```javascript
 function test(fruit, quantity) {
   const redFruits = ['apple', 'strawberry', 'cherry', 'cranberries'];
-  
+
   // 条件1：fruit 必须有值
   if (fruit) {
     // 条件2：fruit 必须是红色
@@ -79,7 +80,7 @@ test('apple', 20); // 'red', 'big quantity'
 // 当发现无效条件时尽早返回
 function test(fruit, quantity) {
   const redFruits = ['apple', 'strawberry', 'cherry', 'cranberries'];
-  
+
   // 条件1：优先返回
   if (!fruit) throw new Error('no fruit');
 
@@ -105,12 +106,12 @@ function test(fruit, quantity) {
 // 当发现无效条件时尽早返回
 function test(fruit, quantity) {
   const redFruits = ['apple', 'strawberry', 'cherry', 'cranberries'];
-  
+
   // 条件1：优先返回
   if (!fruit) throw new Error('no fruit');
   // 条件2：当水果不是红色时，返回
   if (!redFruits.includes(fruit)) return;
-  
+
   console.log('red');
 
   // 条件3：质量必须大于 10
@@ -143,7 +144,7 @@ function test(fruit, quantity) {
   if (!fruit) return;
   const q = quantity || 1; // 如果没有提供 quantity，将其赋值为 1
 
-  console.log(`We have ${q} ${fruit}`)
+  console.log(`We have ${q} ${fruit}`);
 }
 
 // 测试结果
@@ -154,10 +155,11 @@ test('apple', 2); // We have 2 apple
 事实上，我们可以通过函数默认参数来消除变量 `q`：
 
 ```javascript
-function test(fruit, quantity = 1) { // 如果没有提供 quantity，将其赋值为 1
+function test(fruit, quantity = 1) {
+  // 如果没有提供 quantity，将其赋值为 1
   if (!fruit) return;
 
-  console.log(`We have ${q} ${fruit}`)
+  console.log(`We have ${q} ${fruit}`);
 }
 
 // 测试结果
@@ -180,7 +182,7 @@ function test(fruit) {
 
 // 测试结果
 test(null); // unknown
-test({ }); // unknown
+test({}); // unknown
 test({ name: 'apple', color: 'red' }); // apple
 ```
 
@@ -193,7 +195,7 @@ function test({ name } = {}) {
 
 // 测试结果
 test(undefined); // unknown
-test({ }); // unknown
+test({}); // unknown
 test({ name: 'apple', color: 'red' }); // apple
 ```
 
@@ -217,7 +219,7 @@ function test(fruit) {
 // 测试结果
 //test results
 test(undefined); // unknown
-test({ }); // unknown
+test({}); // unknown
 test({ name: 'apple', color: 'red' }); // apple
 ```
 
@@ -252,7 +254,7 @@ test('yellow'); // ['banana', 'pineapple']
 const fruitColor = {
   red: ['apple', 'strawberry'],
   yellow: ['banana', 'pineapple'],
-  purple: ['grape', 'plum']
+  purple: ['grape', 'plum'],
 };
 function test(color) {
   return fruitColor[color];
@@ -289,11 +291,11 @@ const fruits = [
   { name: 'banana', color: 'yellow' },
   { name: 'pineapple', color: 'yellow' },
   { name: 'grape', color: 'purple' },
-  { name: 'plum', color: 'purple' }
+  { name: 'plum', color: 'purple' },
 ];
 
 function test(color) {
-  return fruits.filter(fruit => fruit.color === color);
+  return fruits.filter((fruit) => fruit.color === color);
 }
 ```
 
@@ -307,7 +309,7 @@ function test(color) {
 const fruits = [
   { name: 'apple', color: 'red' },
   { name: 'banana', color: 'yellow' },
-  { name: 'grape', color: 'purple' }
+  { name: 'grape', color: 'purple' },
 ];
 
 function test() {
@@ -315,7 +317,7 @@ function test() {
 
   for (let f of fruits) {
     if (!isAllRed) break;
-    isAllRed = (f.color === 'red');
+    isAllRed = f.color === 'red';
   }
 
   console.log(isAllRed); // false
@@ -328,11 +330,11 @@ function test() {
 const fruits = [
   { name: 'apple', color: 'red' },
   { name: 'banana', color: 'yellow' },
-  { name: 'grape', color: 'purple' }
+  { name: 'grape', color: 'purple' },
 ];
 
 function test() {
-  const isAllRed = fruits.every(f => f.color === 'red');
+  const isAllRed = fruits.every((f) => f.color === 'red');
   console.log(isAllRed); // false
 }
 ```
@@ -343,11 +345,11 @@ function test() {
 const fruits = [
   { name: 'apple', color: 'red' },
   { name: 'banana', color: 'yellow' },
-  { name: 'grape', color: 'purple' }
+  { name: 'grape', color: 'purple' },
 ];
 
 function test() {
-  const isAnyRed = fruits.some(f => f.color === 'red');
+  const isAnyRed = fruits.some((f) => f.color === 'red');
   console.log(isAnyRed); // true
 }
 ```

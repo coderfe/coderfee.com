@@ -4,6 +4,7 @@ date: 2019-11-23
 path: /gatsby/use-bizcharts-in-gatsby
 tldr: BizCharts 踩坑记录：Gatsby.js 在服务端渲染（SSR）模式下使用 BizCharts
 tags: ['Gatsby', '可视化']
+cover: './cover.png'
 ---
 
 <a href="https://bizcharts.net/index" target="_blank" rel="noopner noreferrer">BizCharts</a> 是阿里前端团队开源的一款基于 React 开发的数据可视化框架。今天上午想给[博客书单](https://coderfee.com/year)加一个数据统计的功能，便引入了 BizCharts，但在编译的时候出现了 `document not defined` 的错误，这是服务端渲染模式下的典型问题。

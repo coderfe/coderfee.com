@@ -4,6 +4,7 @@ date: 2019-01-13
 path: '/7-ways-of-javascript-function'
 tldr: 认识 JavaScript 一等公民——函数，以及所以关于它的定义或声明方式。
 tags: ['JavaScript', '译文']
+cover: './cover.png'
 ---
 
 ## 函数
@@ -52,7 +53,7 @@ function foo() {
 ### 函数表达式
 
 ```javascript
-const myFunction = function() {
+const myFunction = function () {
   console.log('Fun with Functions');
 };
 ```
@@ -62,7 +63,7 @@ const myFunction = function() {
 ```javascript
 foo(); // Uncaught ReferenceError: foo is undefined
 
-const foo = function() {
+const foo = function () {
   console.log('Hei!');
 };
 ```
@@ -76,17 +77,9 @@ const foo = function() {
 在 ES2015（即 ES6） 之后，我们可以使用非常小巧方便的箭头函数表达式。这个语法在链接内置的 `map/filter/reduce` 等方法时特别有用。有点像下面的例子：
 
 ```javascript
-const names = [
-  'Eirik',
-  'Nicolai',
-  'Henrik',
-  'Jan',
-  'Paal Kristian',
-  'Kristine',
-  'Espen',
-];
+const names = ['Eirik', 'Nicolai', 'Henrik', 'Jan', 'Paal Kristian', 'Kristine', 'Espen'];
 
-names.filter(name => name.length > 5).map(name => name.toLowerCase());
+names.filter((name) => name.length > 5).map((name) => name.toLowerCase());
 // ["nicolai", "henrik", "paal kristian", "kristine"]
 ```
 
@@ -105,7 +98,7 @@ const myStrangeFunc = new Function('a', "console.log(a + 'with Functions')");
 myStrangeFunc('Fun'); // Fun with Functions
 ```
 
-函数体是由一个字符串创建的？！有趣的函数呀！还没有结束呢🤓。
+函数体是由一个字符串创建的？！有趣的函数呀！还没有结束呢 🤓。
 
 ### 其它方式……
 
@@ -120,7 +113,7 @@ myStrangeFunc('Fun'); // Fun with Functions
 函数非常酷，它们也可以是匿名的。在 JavaScript 中，我们允许未命名的函数。你知道可以立即调用它们吗？立即调用函数表达式（IIFE）：
 
 ```javascript
-(function() {
+(function () {
   // ......
 })();
 ```

@@ -45,34 +45,48 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="首页" description="coderfee coderfee.com coderfe 前端 Gatsby" />
       <div className="home">
-        {posts.map(({ node: post }) => (
-          <div className="post">
-            <div className="cover">
-              <img src="https://source.unsplash.com/random" alt={post.frontmatter.title} />
+        {posts.map(({ node: post }) => {
+          return (
+            <div key={post.frontmatter.path} className="post">
+              <PostCover post={post} />
+              <article key={post.id}>
+                <Link className="post-title" to={post.frontmatter.path}>
+                  {post.frontmatter.title}
+                </Link>
+                <p className="post-title_sub">
+                  <span>{post.frontmatter.date}</span>
+                  {post.frontmatter.tags &&
+                    post.frontmatter.tags.map((tag, index) => (
+                      <span className="sub-tag" key={index}>
+                        #{tag}#
+                      </span>
+                    ))}
+                </p>
+                <blockquote>{post.frontmatter.tldr}</blockquote>
+              </article>
             </div>
-            <article key={post.id}>
-              <Link className="post-title" to={post.frontmatter.path}>
-                {post.frontmatter.title}
-              </Link>
-              <p className="post-title_sub">
-                <span>{post.frontmatter.date}</span>
-                {post.frontmatter.tags &&
-                  post.frontmatter.tags.map((tag, index) => (
-                    <span className="sub-tag" key={index}>
-                      #{tag}#
-                    </span>
-                  ))}
-              </p>
-              <blockquote>{post.frontmatter.tldr}</blockquote>
-            </article>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </Layout>
   );
 };
 
 export default IndexPage;
+
+function PostCover({ post }) {
+  let backgroundImage = 'url(https://source.unsplash.com/random)';
+  if (post.frontmatter.cover) {
+    backgroundImage = `url(${post.frontmatter.cover.childImageSharp.fluid.originalImg})`;
+  }
+
+  const styles = {
+    backgroundImage,
+    backgroundPosition: 'center',
+    backgroundSize: '100%',
+  };
+  return <div className="cover" style={styles} />;
+}
 
 export const pageQuery = graphql`
   query markdownRemark {
@@ -86,6 +100,13 @@ export const pageQuery = graphql`
             title
             tldr
             tags
+            cover {
+              childImageSharp {
+                fluid {
+                  originalImg
+                }
+              }
+            }
           }
         }
       }

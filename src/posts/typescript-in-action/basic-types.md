@@ -4,6 +4,7 @@ date: 2019-08-11
 path: '/typescript-in-action/basic-types'
 tldr: JavaScript 是一门动态类型语言，它对变量的类型非常宽容，虽然足够灵活，但是也埋下了一些『坏代码』的味道。 而 TypeScript 中添加的类型系统，让 JS 拥有了静态类型检查系统，强大且灵活。
 tags: ['TypeScript']
+cover: './cover.png'
 ---
 
 ## Boolean

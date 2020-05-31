@@ -4,6 +4,7 @@ date: 2019-08-25
 path: '/typescript-in-action/advanced-types'
 tldr: TypeScript 高级类型，例如交叉类型、联合类型、枚举类型等。
 tags: ['TypeScript']
+cover: './cover.png'
 ---
 
 ## 交叉类型
@@ -79,7 +80,7 @@ const c = 1 | 2 | 3;
 
 ```js
 function pluck(o, props) {
-  return props.map(p => o[p]);
+  return props.map((p) => o[p]);
 }
 ```
 
@@ -87,7 +88,7 @@ function pluck(o, props) {
 
 ```ts
 function pluck<T, K extends keyof T>(o: T, props: K[]): T[K][] {
-  return props.map(p => o[p]);
+  return props.map((p) => o[p]);
 }
 
 interface Car {

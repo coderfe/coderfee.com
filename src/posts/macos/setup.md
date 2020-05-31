@@ -4,6 +4,7 @@ date: 2020-04-18
 path: /macos/setup
 tldr: macOS 折腾记：某一天脑子一抽把电脑还原了，之后折腾了半天，于是就有了这篇文章。
 tags: ['工具']
+cover: './cover.jpg'
 ---
 
 ## Homebrew

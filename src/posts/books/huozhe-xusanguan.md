@@ -1,7 +1,7 @@
 ---
 title: 『书』擦去眼泪，如同掸去身上的稻草
 date: 2019-09-20
-path: '/read-think/huozhe-xusanguan'
+path: '/books/huozhe-xusanguan'
 tldr: 余华——《活着》&《许三观卖血记》
 tags: ['读书笔记']
 cover: './huozhe-xusanguan.jpeg'

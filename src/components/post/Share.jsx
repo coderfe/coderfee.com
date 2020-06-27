@@ -29,7 +29,7 @@ export const Share = ({ url }) => {
   return (
     <ShareWrapper>
       <Title>分享</Title>
-      <Input value={value} onClick={handleIconClick}>
+      <Input defaultValue={value} onClick={handleIconClick}>
         <CopyFilled style={{ color: '#fff' }} size="14" />
       </Input>
     </ShareWrapper>

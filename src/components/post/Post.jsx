@@ -21,20 +21,22 @@ const Article = styled.article`
   border-radius: 10px;
 `;
 
-export const Post = ({ post: { tags, title, date, timeToRead, tldr, html, next, previous } }) => (
-  <div className={styles.blogPost}>
-    <PostCover />
-    <Article>
-      <Tags tags={tags} />
-      <h1 className={styles.blogPostTitle}>{title}</h1>
-      <div className={styles.blogPostSubTitle}>
-        <span>{date}</span>
-        <span>{timeToRead}min</span>
-      </div>
-      <BlockQuote content={tldr} />
-      <div className={styles.blogPostContent} dangerouslySetInnerHTML={{ __html: html }} />
+export const Post = ({ post: { tags, title, date, timeToRead, tldr, html, next, previous } }) => {
+  return (
+    <div className={styles.blogPost}>
+      <PostCover />
+      <Article>
+        <Tags tags={tags} />
+        <h1 className={styles.blogPostTitle}>{title}</h1>
+        <div className={styles.blogPostSubTitle}>
+          <span>{date}</span>
+          <span>{timeToRead}min</span>
+        </div>
+        <BlockQuote content={tldr} />
+        <div className={styles.blogPostContent} dangerouslySetInnerHTML={{ __html: html }} />
 
-      <NextAndPrevPosts next={next} previous={previous} />
-    </Article>
-  </div>
-);
+        <NextAndPrevPosts next={next} previous={previous} />
+      </Article>
+    </div>
+  );
+};

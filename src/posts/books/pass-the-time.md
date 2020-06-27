@@ -1,7 +1,7 @@
 ---
 title: 『书』打发地铁通勤时间的书（书摘）
 date: 2019-03-30
-path: '/2019-03'
+path: '/books/2019-03'
 tldr: 了解历史，理解当下，窥探未来。
 tags: ['读书笔记']
 cover: './pass-the-time.jpg'

@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.div`
-  grid-area: footer;
-  margin-top: 1rem;
+  margin-top: var(--base-margin);
   padding: 1rem;
-  color: white;
-  background-color: #1c1c1c;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--base-border-radius);
+  color: var(--primary-text-color);
+  background-color: #fff;
   text-align: center;
   font-size: 14px;
 
@@ -15,7 +16,7 @@ const FooterContainer = styled.div`
   }
 `;
 
-export default function Footer({ icp }) {
+export const Footer = ({ icp }) => {
   return (
     <FooterContainer id="footer">
       © {new Date().getFullYear()},{` `}
@@ -24,4 +25,4 @@ export default function Footer({ icp }) {
       </a>
     </FooterContainer>
   );
-}
+};

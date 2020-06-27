@@ -79,6 +79,7 @@ body {
 .layout {
   max-width: 1366px;
   display: grid;
+  grid-template-columns: 420px 1fr;
   grid-gap: var(--base-margin);
   padding: var(--base-margin);
   margin: 0 auto;

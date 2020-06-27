@@ -4,9 +4,9 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import { Profile } from './Profile';
 import SEO from '../seo';
-import Footer from './Footer';
 import { Search } from './Search';
 import { Navigator } from './Navigator';
+import { Footer } from './Footer';
 
 toast.configure({ autoClose: 2000 });
 
@@ -35,10 +35,10 @@ const Layout = ({ seoTitle, seoDescription, meta, children }) => {
           <Navigator />
           <Profile />
           <Search />
+          <Footer icp={data.site.siteMetadata.ICP} />
         </div>
 
         {children}
-        <Footer icp={data.site.siteMetadata.ICP} />
       </div>
     </>
   );

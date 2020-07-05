@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import { CalendarFilled } from '@ant-design/icons';
 
 const RelatedPostsContainer = styled.div`
-  width: 230px;
+  /* width: 230px; */
+  margin-top: var(--base-margin);
   border-radius: var(--base-border-radius);
-  box-shadow: var(--box-shadow);
+  /* box-shadow: var(--box-shadow); */
+  background-color: #fff;
 
   a {
     color: var(--primary-text-color);

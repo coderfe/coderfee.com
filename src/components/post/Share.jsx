@@ -6,6 +6,7 @@ import { Input } from '../Input';
 const ShareWrapper = styled.div`
   width: 230px;
   padding: 0.5rem;
+  margin-top: var(--base-margin);
   box-shadow: var(--box-shadow);
   border-radius: var(--base-border-radius);
 `;

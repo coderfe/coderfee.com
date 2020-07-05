@@ -41,9 +41,9 @@ export default function BlogPostTemplate({ data, pageContext }) {
 
   return (
     <Layout seoTitle={title} seoDescription={tldr} meta={[{ name: `keyword`, content: (tags || []).join(' ') }]}>
-      <Post post={{ title, tags, tldr, date, timeToRead: post.timeToRead, next, previous, html: post.html }} />
-      <RelatedPosts posts={relatedPosts} />
-      <Share url={path} />
+      <Post post={{ title, tags, tldr, date, timeToRead: post.timeToRead, next, previous, html: post.html }}>
+        <RelatedPosts posts={relatedPosts} />
+      </Post>
     </Layout>
   );
 }

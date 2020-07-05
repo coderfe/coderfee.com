@@ -21,7 +21,7 @@ const Article = styled.article`
   border-radius: 10px;
 `;
 
-export const Post = ({ post: { tags, title, date, timeToRead, tldr, html, next, previous } }) => {
+export const Post = ({ post: { tags, title, date, timeToRead, tldr, html, next, previous }, children }) => {
   return (
     <div className={styles.blogPost}>
       <PostCover />
@@ -36,6 +36,8 @@ export const Post = ({ post: { tags, title, date, timeToRead, tldr, html, next, 
         <div className={styles.blogPostContent} dangerouslySetInnerHTML={{ __html: html }} />
 
         <NextAndPrevPosts next={next} previous={previous} />
+
+        {children}
       </Article>
     </div>
   );

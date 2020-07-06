@@ -46,6 +46,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               tags
               title
               date(formatString: "MMM DD, YYYY")
+              cover {
+                childImageSharp {
+                  fluid {
+                    originalImg
+                  }
+                }
+              }
             }
           }
         }

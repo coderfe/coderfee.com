@@ -30,8 +30,8 @@ const PostCard = styled.div`
 const PostCardCover = styled.div`
   width: 100px;
   height: 80px;
-  background: url('https://source.unsplash.com/random');
-  background-size: 100%;
+  background: url(${(props) => props?.background ?? 'https://source.unsplash.com/random'}) no-repeat;
+  background-size: cover;
   border-radius: var(--base-border-radius);
 `;
 
@@ -58,7 +58,7 @@ export default function relatedPosts({ posts }) {
       {posts.map((post) => {
         return (
           <PostCard key={post.node.frontmatter.path}>
-            <PostCardCover />
+            <PostCardCover background={post?.node?.frontmatter?.cover?.childImageSharp?.fluid?.originalImg} />
             <PostCardInfo>
               <Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link>
               <PostCardSub>

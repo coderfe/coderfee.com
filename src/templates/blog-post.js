@@ -4,13 +4,12 @@ import { toast } from 'react-toastify';
 import Layout from '../components/layout/Layout';
 import { Post } from '../components/post/Post';
 import RelatedPosts from '../components/post/RelatedPosts';
-import { Share } from '../components/post/Share';
 
 export default function BlogPostTemplate({ data, pageContext }) {
   const { markdownRemark: post } = data;
   const { next, previous, relatedPosts } = pageContext;
 
-  const { title, tldr, date, tags, path } = post.frontmatter;
+  const { title, tldr, date, tags } = post.frontmatter;
 
   const handleKeyup = useCallback(
     (event) => {

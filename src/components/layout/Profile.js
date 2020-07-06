@@ -77,7 +77,7 @@ const fetchRepos = async () => {
 };
 
 export const Profile = () => {
-  const { data: repos, status: reposStatus } = useQuery('repos', fetchRepos);
+  const { data: repos } = useQuery('repos', fetchRepos);
 
   const staticQueryData = useStaticQuery(graphql`
     query Query {
@@ -104,7 +104,7 @@ export const Profile = () => {
         </div>
         <ProfileInfoCount>
           <BingoCount title="Articles" count={artilces.length} />
-          <BingoCount title="Repos" count={41} />
+          <BingoCount title="Repos" count={(repos || []).length} />
           <BingoCount title="Followers" count={12} />
         </ProfileInfoCount>
         <ProfileAction href="mailto:coderfee@outlook.com">Email</ProfileAction>

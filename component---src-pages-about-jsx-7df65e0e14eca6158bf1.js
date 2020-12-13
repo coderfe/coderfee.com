@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{yNVH:function(e,n,t){"use strict";t.r(n),t.d(n,"default",(function(){return l}));var a=t("q1tI"),i=t.n(a),r=t("9JMG"),c=t("vrFN");function l(){return i.a.createElement(r.a,null,i.a.createElement(c.a,{title:"关于",description:"关于 CODERFEE 前端开发"}),i.a.createElement("div",{style:{minHeight:"100vh",padding:"2rem"}},i.a.createElement("h1",null,"Coming soon...")))}}}]);
+//# sourceMappingURL=component---src-pages-about-jsx-7df65e0e14eca6158bf1.js.map
